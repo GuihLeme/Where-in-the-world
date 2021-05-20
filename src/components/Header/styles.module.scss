@@ -1,0 +1,32 @@
+@import '../../styles/scss/conf';
+
+.header {
+  height: 5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--white);
+
+  .content {
+    @include margin-page;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .toggleTheme {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      svg {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,44 @@
+@import './conf';
+
+.container {
+  margin: 3rem 0;
+
+  .content {
+    @include margin-page;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    form {
+      width: 100%;
+    }
+
+    .searchAndFilter {
+      display: flex;
+      justify-content: space-between;
+
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 4.75rem;
+      max-width: 1280px;
+    }
+
+    // .cards {
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: space-between;
+    //   flex-wrap: wrap;
+
+    //   width: 100%;
+    //   gap: auto;
+    // }
+  }
+
+}
