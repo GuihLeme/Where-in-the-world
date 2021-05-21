@@ -1,4 +1,6 @@
-.container {
+
+.darkContainer,
+.lightContainer {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -7,8 +9,12 @@
   width: 30rem;
   height: 3.5rem;
 
-  background: var(--white);
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
   border-radius: .5rem;
+
+  svg {
+    color: var(--dark-gray);
+  }
 
 
   input {
@@ -20,6 +26,24 @@
 
     &::placeholder {
       color: var(--dark-gray);
+    }
+  }
+}
+
+.lightContainer {
+  background: var(--white);
+}
+
+.darkContainer {
+  background: var(--dark-blue);
+  color: var(--white);
+
+
+  input {
+    color: var(--white);
+
+    &::placeholder {
+      color: var(--white);
     }
   }
 }

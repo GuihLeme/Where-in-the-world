@@ -1,0 +1,161 @@
+@import '../../styles/scss/conf';
+
+.darkContainer,
+.lightContainer {
+  height: calc(100vh - 5rem);
+
+  .allContent {
+    @include margin-page;
+
+    display: flex;
+    flex-direction: column;
+
+    .goBack {
+      margin: 5rem 0;
+      > a {
+        width: 8.75rem;
+        height: 2.5rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
+        border-radius: .5rem;
+
+        span {
+          margin-left: .5rem;
+        }
+      }
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      img {
+        width: 35rem;
+        height: 25rem;
+        object-fit: cover;
+      }
+
+      .data {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        max-height: 25rem;
+
+        h1 {
+          margin-bottom: 1rem;
+        }
+
+        .details {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          flex-wrap: wrap;
+
+          max-height: 10rem;
+          width: 30rem;
+
+          div {
+            display: flex;
+
+            h3 {
+              font-size: 1rem;
+              margin-right: .5rem;
+            }
+            p {
+              font-size: 1rem;
+              margin-bottom: .5rem;
+            }
+
+            .currency:not(:last-child):after,
+            .language:not(:last-child):after {
+              content: ',';
+              margin-right: .25rem;
+            }
+          }
+
+        }
+
+        .borders {
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+
+          margin-top: 2rem;
+
+          max-width: fit-content;
+
+          h3 {
+            font-size: 1rem;
+            margin-right: .5rem;
+          }
+
+          .countries {
+            display: flex;
+            flex-wrap: wrap;
+
+            div {
+              height: 1.75rem;
+              min-width: 6rem;
+              box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
+              padding: 0 .5rem;
+              border-radius: .25rem;
+
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              margin: .5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.darkContainer {
+  background: var(--very-dark-blue-bg) ;
+  color: var(--white);
+  .goBack {
+    > a{
+      background: var(--dark-blue);
+    }
+  }
+
+  .content {
+    .data {
+      .borders {
+        .countries {
+          div {
+            background: var(--dark-blue);
+          }
+        }
+      }
+    }
+  }
+}
+.lightContainer {
+  .goBack {
+    > a {
+      background: var(--white);
+    }
+  }
+
+  .content {
+    .data {
+      .borders {
+        .countries {
+          div {
+            background: var(--white);
+          }
+        }
+      }
+    }
+  }
+}

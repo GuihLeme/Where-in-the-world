@@ -1,13 +1,16 @@
 import '../styles/scss/Main.scss';
 
 import { SearchAndFilterProvider } from '../hooks/SearchAndFilterContext';
+import { ThemeProvider } from '../hooks/ThemeContext';
 import Header from '../components/Header';
 
 const App = ({ Component, pageProps }) => {
   return(
     <SearchAndFilterProvider>
-      <Header />
-      <Component {...pageProps} />
+      <ThemeProvider>
+        <Header />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </SearchAndFilterProvider>
   )
 

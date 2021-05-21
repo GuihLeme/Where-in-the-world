@@ -1,4 +1,5 @@
-.card {
+.darkCard,
+.lightCard {
   margin: 0 auto;
 
   width: 16.5rem;
@@ -36,4 +37,13 @@
       }
     }
   }
+}
+
+.lightCard {
+  background: var(--white);
+}
+
+.darkCard {
+  background: var(--dark-blue);
+  color: var(--white);
 }

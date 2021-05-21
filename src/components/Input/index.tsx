@@ -3,12 +3,14 @@ import { FiSearch } from 'react-icons/fi';
 import { useField } from '@unform/core';
 
 import styles from './styles.module.scss';
+import { useTheme } from '../../hooks/ThemeContext';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
 }
 
 const Input: React.FC<InputProps> = ({ name, ...rest }) => {
+  const { isDarkMode } = useTheme();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const { fieldName, registerField, defaultValue } = useField(name);
@@ -22,8 +24,8 @@ const Input: React.FC<InputProps> = ({ name, ...rest }) => {
   }, [fieldName, registerField]);
 
   return (
-    <div className={styles.container}>
-      <FiSearch size={20} color={'var(--dark-gray)'} />
+    <div className={isDarkMode ? styles.darkContainer : styles.lightContainer}>
+      <FiSearch size={20} />
       <input
         defaultValue={defaultValue}
         ref={inputRef}

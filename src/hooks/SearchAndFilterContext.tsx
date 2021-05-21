@@ -1,5 +1,4 @@
-import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { FormHandles } from '@unform/core';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 
 import api from '../services/api';
 
@@ -9,29 +8,37 @@ interface Country {
   population: string;
   region: string;
   capital: string;
+  alpha3Code: string;
+  currencies: string[];
+  borders: string[];
+}
+
+interface BorderCountry {
+  name: string;
 }
 
 interface SearchAndFilterContextData {
   isMenuOpen: boolean;
   selectedRegion: string;
-  countriesByRegion: Country[];
-  parsedCountries: Country[];
+  countries: Country[];
+  borderCountries: BorderCountry[];
   toggleIsMenuOpen: () => void;
   handleSelectedRegion: (region: string) => void;
-  setCountriesByRegion: (country) => void;
+  setCountries: (countries: Country[]) => void;
+  setBorderCountries: (borderCountries: BorderCountry[]) => void;
 }
 
 export const SearchAndFilterContext = createContext<SearchAndFilterContextData>({} as SearchAndFilterContextData);
 
-export const SearchAndFilterProvider: React.FC = ({ children }) => {
+export const SearchAndFilterProvider: React.FC =  ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState(null);
-  const [countriesByRegion, setCountriesByRegion] = useState([] as Country[]);
+  const [countries, setCountries] = useState([] as Country[]);
+  const [borderCountries, setBorderCountries] = useState([]);
 
   useEffect(() => {
     api.get('/all').then((response) => {
-      setCountriesByRegion(response.data)
-      console.log(response.data)
+      setCountries(response.data)
     })
   }, []);
 
@@ -43,33 +50,21 @@ export const SearchAndFilterProvider: React.FC = ({ children }) => {
     setSelectedRegion(region);
 
     const response = await api.get(`/region/${region}`);
-    setCountriesByRegion(response.data)
+    setCountries(response.data)
 
     setIsMenuOpen(false);
   }
-
-  const parsedCountries = countriesByRegion.map(country => {
-    const parsedPopulation = country.population.toLocaleString();
-
-    return {
-      flag: country.flag,
-      name: country.name,
-      population: parsedPopulation,
-      region: country.region,
-      capital: country.capital,
-    }
-  })
-
 
   return(
     <SearchAndFilterContext.Provider value={{
       isMenuOpen,
       selectedRegion,
-      countriesByRegion,
-      parsedCountries,
+      countries,
+      borderCountries,
       toggleIsMenuOpen,
       handleSelectedRegion,
-      setCountriesByRegion
+      setCountries,
+      setBorderCountries,
     }}>
       {children}
     </SearchAndFilterContext.Provider>

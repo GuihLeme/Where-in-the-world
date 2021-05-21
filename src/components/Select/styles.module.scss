@@ -1,4 +1,5 @@
-.container {
+.darkContainer,
+.lightContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,9 +7,8 @@
   width: 12.5rem;
   height: 3.5rem;
 
-  background: var(--white);
   border-radius: .5rem;
-
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.2);
 
   position: relative;
 
@@ -36,7 +36,6 @@
       justify-content: center;
 
       width: 12.5rem;
-      background: var(--white);
       border-radius: .5rem;
 
       position: absolute;
@@ -65,5 +64,26 @@
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+.lightContainer {
+  background: var(--white);
+
+  .select {
+    .dropMenu {
+      background: var(--white);
+    }
+  }
+}
+
+.darkContainer {
+  background: var(--dark-blue);
+  color: var(--white);
+
+  .select {
+    .dropMenu {
+      background: var(--dark-blue);
+    }
   }
 }

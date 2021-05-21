@@ -1,10 +1,11 @@
 @import './conf';
 
-.container {
-  margin: 3rem 0;
-
+.darkContainer,
+.lightContainer {
   .content {
     @include margin-page;
+
+    padding: 3rem 0;
 
     display: flex;
     flex-direction: column;
@@ -29,16 +30,10 @@
       gap: 4.75rem;
       max-width: 1280px;
     }
-
-    // .cards {
-    //   display: flex;
-    //   align-items: center;
-    //   justify-content: space-between;
-    //   flex-wrap: wrap;
-
-    //   width: 100%;
-    //   gap: auto;
-    // }
   }
+}
 
+.darkContainer {
+  background-color: var(--very-dark-blue-bg);
+  color: var(--white);
 }
