@@ -14,21 +14,47 @@
 
     form {
       width: 100%;
+
+      .searchAndFilter {
+        display: flex;
+        justify-content: space-between;
+
+        width: 100%;
+        margin-bottom: 3rem;
+      }
     }
 
-    .searchAndFilter {
-      display: flex;
-      justify-content: space-between;
-
-      width: 100%;
-      margin-bottom: 3rem;
-    }
 
     .cards {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 4.75rem;
       max-width: 1280px;
+    }
+  }
+
+  @media #{$BREAKPOINT-MOBILE} {
+    .content {
+      min-height: calc(100vh - 5rem);
+      justify-content: flex-start;
+
+      form {
+        .searchAndFilter {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: space-between;
+
+          height: 10rem;
+        }
+      }
+
+      .cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }

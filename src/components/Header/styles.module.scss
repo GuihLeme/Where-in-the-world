@@ -1,6 +1,5 @@
 @import '../../styles/scss/conf';
 
-
 .darkHeader,
 .lightHeader {
   height: 5rem;
@@ -29,6 +28,14 @@
       svg {
         margin-right: 1rem;
       }
+    }
+  }
+
+  @media #{$BREAKPOINT-MOBILE} {
+    width: 100%;
+
+    h1 {
+      font-size: 1rem;
     }
   }
 }

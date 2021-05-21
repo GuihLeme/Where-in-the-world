@@ -2,7 +2,7 @@
 
 .darkContainer,
 .lightContainer {
-  height: calc(100vh - 5rem);
+  min-height: calc(100vh - 5rem);
 
   .allContent {
     @include margin-page;
@@ -112,6 +112,65 @@
 
               margin: .5rem;
             }
+          }
+        }
+      }
+    }
+  }
+
+  @media #{$BREAKPOINT-MOBILE} {
+    .allContent {
+      .goBack {
+        margin: 3.125rem 0;
+      }
+
+      .content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        img {
+          width: calc(100vw - 2.5rem);
+          height: 15rem;
+        }
+
+        .data {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          max-height: none;
+          width: 100%;
+
+          margin-top: 3.125rem;
+
+          .details {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            justify-content: center;
+            height: auto;
+            width: auto;
+            max-height: none;
+            width: 100%;
+
+
+          }
+
+          .borders {
+            display: flex;
+            flex-direction: column;
+
+            h3 {
+              margin-bottom: 2.5rem;
+            }
+
+            .countries {
+              div {
+                margin: 0 1rem 1rem 0;
+              }
+            }
+
           }
         }
       }
