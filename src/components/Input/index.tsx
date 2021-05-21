@@ -29,6 +29,7 @@ const Input: React.FC<InputProps> = ({ name, ...rest }) => {
       <input
         defaultValue={defaultValue}
         ref={inputRef}
+        name="inputSearch"
         {...rest}
       />
     </div>
