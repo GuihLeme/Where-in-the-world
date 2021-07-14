@@ -7,7 +7,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Links](#links)
-- [My process](#my-process)
+- [Running](#running)
   - [Built with](#built-with)
 - [Author](#author)
 
@@ -29,7 +29,19 @@ Users should be able to:
 - Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/react-js-nextjs-sass-3ANoJz-9Z)
 - Live Site URL: [Where in the world?](https://where-in-the-world-nu.vercel.app/)
 
-## My process
+## Running
+
+Clone this repository, open its folder and install dependencies with:
+
+```sh
+yarn
+```
+
+Then, run it using:
+
+```sh
+yarn start
+```
 
 ### Built with
 
